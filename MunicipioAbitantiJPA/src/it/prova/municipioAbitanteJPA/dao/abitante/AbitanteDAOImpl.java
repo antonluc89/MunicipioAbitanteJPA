@@ -68,7 +68,7 @@ public class AbitanteDAOImpl implements AbitanteDAO {
 
 	@Override
 	public List<Abitante> findAllByCodiceMunicipioIniziaCon(String codice) throws Exception {
-		TypedQuery<Abitante> query = entityManager.createQuery("from Abitante a left join fetch a.municipi a where codice LIKE ?1", Abitante.class);
+		TypedQuery<Abitante> query = entityManager.createQuery("from Abitante a left join fetch a.municipio a where codice LIKE ?1", Abitante.class);
 		return query.setParameter(1, "" + codice + "%").getResultList();
 	}
 
